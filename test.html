@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<style>
+li {
+list-style: none;
+}
+.completed {
+text-decoration: line-through;
+}
+</style>
+</head>
+<body>
+<div id="app">
+	<h4>
+		Number of items:
+	</h4>
+<ul>
+<li v-for="todo in todos">
+<input type="checkbox" :checked="todo.completed" @click="todo.completed = !todo.completed"> 
+<span :class="todo.completed ? 'completed' : ''">{{ todo.task }}</span>
+</li>
+</ul>
+</div>
+
+<h4>
+	Sum of total items:
+</h4>	
+
+<script>
+var app = new Vue({
+el: '#app',
+data: {
+todos: [
+{task: 'Shirts',   completed: false },
+{task: 'Jeans',    completed: false },
+{task: 'Shoes',    completed: false },
+{task: 'T-shirts', completed: false }
+]
+},
+})
+</script> 
+</body>
+</html>

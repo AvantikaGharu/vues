@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+	<style>
+		li{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+<div id='check'>
+	<h4>Number of Items</h4>
+	<ul>
+		<li>
+  			<input type="checkbox" value="10" v-model="checkedItems">
+ 			<label>Polo T-shirts price 10$</label>
+		</li><br>
+		<li>
+  			<input type="checkbox"  value="20" v-model="checkedItems">
+  			<label>Denim Shirts price 20$</label>
+  		</li><br>
+  		<li>
+  			<input type="checkbox"  value="30" v-model="checkedItems">
+  			<label>Pepe Jeans price 30$</label>
+  		</li><br>
+  		<li>
+  			<input type="checkbox"  value="45" v-model="checkedItems">
+  			<label>Nike shoes price 45$</label>
+  		</li><br>
+ 
+  <br>
+  <h4>Total of selected Items: {{ total }}</h4>
+</div>
+<script>
+var sum = new Vue({
+  el: '#check',
+  data: {
+    checkedItems: []
+  },
+  computed: {
+  	total() {
+    	return this.checkedItems.reduce(function (a, b) {
+      	return parseInt(a) + parseInt(b);
+      }, 0);
+    }
+  }
+})
+	</script>
+
+</body>
+</html>
